@@ -1,0 +1,45 @@
+#!/bin/bash
+mkdir 5.0 6.0 6.5 7.0 8.0 8.5
+export MAYA_COMPILDER_NEW=
+
+echo ====== Building for Maya 5.0 ======
+export MAYA_LOCATION=~/works/my/maya/5.0
+jam clean
+jam -q
+cp imocaputilz.so 5.0/
+
+echo ====== Building for Maya 6.0 ======
+export MAYA_LOCATION=~/works/my/maya/6.0
+jam clean
+jam -q
+cp imocaputilz.so 6.0/
+
+echo ====== Building for Maya 6.5 ======
+export MAYA_LOCATION=~/works/my/maya/6.5
+jam clean
+jam -q
+cp imocaputilz.so 6.5/
+
+echo ====== Building for Maya 7.0 ======
+export MAYA_LOCATION=~/works/my/maya/7.0
+jam clean
+jam -q
+cp imocaputilz.so 7.0/
+
+export MAYA_COMPILDER_NEW=1
+
+echo ====== Building for Maya 8.0 ======
+export MAYA_LOCATION=~/works/my/maya/8.0
+jam clean
+jam -q
+cp imocaputilz.so 8.0/
+
+echo ====== Building for Maya 8.5 ======
+export MAYA_LOCATION=~/works/my/maya/8.5
+jam clean
+jam -q
+cp imocaputilz.so 8.5/
+
+export MAYA_LOCATION=
+export MAYA_COMPILDER_NEW=
+jam clean
