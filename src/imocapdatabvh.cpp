@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////
 //
-//  imocapUtilz
+//  MoCap File Importer
 //  Copyright(c) Shun Cox (shuncox@gmail.com)
 //
 //  THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
