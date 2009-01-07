@@ -1,0 +1,70 @@
+if $(UNIX)
+{
+    ########################
+    # common parameters
+
+    if $(MAYA_COMPILER_NEW) {
+	C = gcc ;
+	C++ = g++ ;
+    } else {
+    	C = gcc-3.3 ;
+    	C++ = g++-3.3 ;
+    }
+
+    OPTIM = -O3 -mcpu=pentium4 ;
+    HDRS = $(MAYA_LOCATION)/include ;
+    C++FLAGS += -pipe -D_BOOL -DLINUX -Wno-deprecated -fno-gnu-keywords -pthread ;
+
+    if $(MAYA_PLUGIN) {
+
+	########################
+	# for Maya Plug-ins
+
+	SUFSHR = .so ;
+	EXEMODE = -x ;
+	LINKFLAGS += -shared -pipe -D_BOOL -DLINUX -Wno-deprecated -fno-gnu-keywords -pthread -L$(MAYA_LOCATION)/lib -Wl -Bsymbolic ;
+	LINKLIBS = -lOpenMaya -lFoundation ;
+
+    } else {
+
+	########################
+	# for Maya Applications
+
+	SUFSHR = ;
+	C++FLAGS += -w ;
+	LINK = $(MAYA_LOCATION)/bin/mayald MAYA_LOCATION=$(MAYA_LOCATION) ;
+
+    }
+}
+else if $(NT)
+{
+    ########################
+    # common parameters
+
+    OPTIM = /O2 ;
+    HDRS = $(MAYA_LOCATION)\\INCLUDE $(MSVCNT)\\PLATFO~1\\INCLUDE ;
+    C++FLAGS += /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /FD /EHsc /MD /YX /W3 /c ;
+    LINKFLAGS += /LIBPATH:$(MAYA_LOCATION)\\LIB /INCREMENTAL:NO /MACHINE:X86 /IGNORE:4089 ;
+    LINKLIBS = Foundation.lib OpenMaya.lib ;
+    LINKLIBS += kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib ;
+   
+    if $(MAYA_PLUGIN) {
+
+	########################
+	# for Maya Plug-ins
+
+	SUFSHR = .mll ;
+	C++FLAGS += /D "NT_PLUGIN" /D "_WINDLL" /GX /GR ;
+	LINKFLAGS += /SUBSYSTEM:WINDOWS /DLL /EXPORT:initializePlugin /EXPORT:uninitializePlugin ;
+
+    } else {
+
+	########################
+	# for Maya Applications
+
+	SUFSHR = .exe ;
+	C++FLAGS += /D "_CONSOLE" /D "NT_APP" ;
+	LINKFLAGS += /SUBSYSTEM:CONSOLE ;
+
+    }
+}

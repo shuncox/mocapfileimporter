@@ -1,0 +1,37 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imocaputilz", "imocaputilz.vcproj", "{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		2008|Win32 = 2008|Win32
+		2008|x64 = 2008|x64
+		8.0|Win32 = 8.0|Win32
+		8.0|x64 = 8.0|x64
+		8.5|Win32 = 8.5|Win32
+		8.5|x64 = 8.5|x64
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.2008|Win32.ActiveCfg = 2008|Win32
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.2008|Win32.Build.0 = 2008|Win32
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.2008|x64.ActiveCfg = 2008|x64
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.2008|x64.Build.0 = 2008|x64
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.8.0|Win32.ActiveCfg = 8.0|Win32
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.8.0|Win32.Build.0 = 8.0|Win32
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.8.0|x64.ActiveCfg = 8.0|Win32
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.8.0|x64.Build.0 = 8.0|Win32
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.8.5|Win32.ActiveCfg = 8.5|Win32
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.8.5|Win32.Build.0 = 8.5|Win32
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.8.5|x64.ActiveCfg = 8.5|x64
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.8.5|x64.Build.0 = 8.5|x64
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.Debug|Win32.Build.0 = Debug|Win32
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.Debug|x64.ActiveCfg = Debug|x64
+		{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}.Debug|x64.Build.0 = Debug|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

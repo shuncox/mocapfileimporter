@@ -1,0 +1,11 @@
+# Jamfile for imocaputilz
+
+MAYA_PLUGIN = 1 ;
+SubDir . ;
+if $(UNIX) {
+	LINKLIBS += -lOpenMayaAnim ;
+}
+else if $(NT) {
+	LINKLIBS += OpenMayaAnim.lib ;
+}
+Main imocaputilz$(SUFSHR) : pluginmain.cpp imocapdatabvh.cpp imocapdatahtr.cpp imocapdata.cpp imocapimport.cpp iskeleton.cpp ;

@@ -1,0 +1,254 @@
+////////////////////////////////////////////////////////////////////////////
+//
+//  imocapUtilz
+//  Copyright(c) Shun Cox (shuncox@gmail.com)
+//
+//  THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+//  KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+//  IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
+//  PURPOSE.
+//
+////////////////////////////////////////////////////////////////////////////
+//
+// $Id: imocapImportOptions.mel,v 1.5 2007/02/28 09:07:53 zhangshun Exp $
+//
+////////////////////////////////////////////////////////////////////////////
+
+global proc int imocapImportOptions ( string $parent, 
+									string $action,
+									string $initialSettings, 
+									string $resultCallback )
+{
+//
+//	Description:
+//		This script posts the mocap file accessor options.
+//
+//	Parameters:
+//		$parent	- the elf parent layout for this options layout. It is
+//					always a scrollLayout.
+//		$action	- the action that is to be performed with this invokation
+//					of this proc. Valid options are:
+//						"query" - construct the options string and pass it
+//									to the resultCallback.
+//						"post"	- post all the elf controls.
+//		$resultCallback	-
+//				This is the proc to be called with the result string. 
+//				resultCallback ( string $optionsString )
+//
+//	Returns:
+//		1 if successfull.
+//		0 otherwise.
+//
+
+	int 	$result;
+	string 	$currentOptions;
+	string 	$optionList[];
+	string 	$optionBreakDown[];
+	int	$index;
+
+	if ($action == "post") {
+		setUITemplate -pushTemplate DefaultTemplate;
+		setParent $parent;
+
+		columnLayout -adj true animMultiObjCol;
+	
+			// Bones only
+			//
+			checkBoxGrp -label "Import Skeleton Only" -value1 off -l1 ""
+				-cc1 "updateimocapImportOptionsEnable;"
+				imocapBonesOnly;
+
+			// Merge
+			//
+			checkBoxGrp -label "Apply Data to Existing Skeleton" -value1 off -l1 ""
+				-cc1 "updateimocapApplyOptionsEnable;"
+				imocapMerge;
+
+			// Horizontal line
+			//
+			separator -style "in" -w 1000;
+
+			// Scale
+			//
+			floatSliderGrp -label "Scale" -field true -min 0 -max 10 -value 1.0 imocapScale;
+
+			// Rotation order
+			optionMenuGrp -label "Rotation Order" imocapRotationOrder;
+				menuItem -label "none";
+				menuItem -label "xyz";
+				menuItem -label "yzx";
+				menuItem -label "zxy";
+				menuItem -label "xzy";
+				menuItem -label "yxz";
+				menuItem -label "zyx";
+
+			// Horizontal line
+			//
+			separator -style "in" -w 1000;
+
+			// Frame range
+			//
+			radioButtonGrp
+//				-numberOfRadioButtons 4
+				-numberOfRadioButtons 3
+				-select 1
+				-label "Frame Range"
+				-label1 "All"
+				-cc1 "updateimocapImportOptionsEnable;"
+				-label2 "Start"
+				-cc2 "updateimocapImportOptionsEnable;"
+				-label3 "Start/End" 
+				-cc3 "updateimocapImportOptionsEnable;"
+				imocapFrameRange;
+			
+			intFieldGrp -label "Start Frame" -value1 0 imocapStartFrame;
+			intFieldGrp -label "End Frame" -value1 100 imocapEndFrame;
+
+
+		// Now set to current settings.
+		//
+		$currentOptions = $initialSettings;
+
+		int $startFrame, $endFrame;
+		if (size($currentOptions) > 0) {
+			tokenize($currentOptions, ";", $optionList);
+			for ($index = 0; $index < size($optionList); $index++) {
+				tokenize($optionList[$index], "=", $optionBreakDown);
+
+				if ($optionBreakDown[0] == "bonesOnly") {
+					int $bonesOnly = ($optionBreakDown[1] == "true");
+					checkBoxGrp -edit -value1 $bonesOnly imocapBonesOnly;
+				} else if ($optionBreakDown[0] == "merge") {
+					int $merge = ($optionBreakDown[1] == "true");
+					checkBoxGrp -edit -value1 $merge imocapMerge;
+				} else if ($optionBreakDown[0] == "scale") {
+					float $scale = $optionBreakDown[1];
+					floatSliderGrp -edit -value $scale imocapScale;
+				} else if ($optionBreakDown[0] == "rotationOrder") {
+					string $rotationOrder = $optionBreakDown[1];
+					optionMenuGrp -edit -value $rotationOrder imocapRotationOrder;
+				} else if ($optionBreakDown[0] == "startFrame") {
+					$startFrame = $optionBreakDown[1];
+				} else if ($optionBreakDown[0] == "endFrame") {
+					$endFrame = $optionBreakDown[1];
+				}
+			}
+		}
+
+		if ($startFrame == 0 && $endFrame == 0x80000000) {
+			radioButtonGrp -edit -select 1 imocapFrameRange;
+		} else if ($endFrame == 0x80000000) {
+			radioButtonGrp -edit -select 2 imocapFrameRange;
+			intFieldGrp -edit -value1 $startFrame imocapStartFrame;
+		} else {
+			radioButtonGrp -edit -select 3 imocapFrameRange;
+			intFieldGrp -edit -value1 $startFrame imocapStartFrame;
+			intFieldGrp -edit -value1 $endFrame imocapEndFrame;
+		}
+
+		updateimocapImportOptionsEnable();
+		updateimocapApplyOptionsEnable();
+
+		setUITemplate -popTemplate;
+		$result = 1;
+
+	} else if ($action == "query") {
+
+		$currentOptions = "bonesOnly=";
+		int $bonesOnly = `checkBoxGrp -query -value1 imocapBonesOnly`;
+		if ($bonesOnly) {
+			$currentOptions += "true";
+		} else {
+			$currentOptions += "false";
+		}
+
+		$currentOptions += ";merge=";
+		int $merge = `checkBoxGrp -query -value1 imocapMerge`;
+		if ($merge) {
+			$currentOptions += "true";
+		} else {
+			$currentOptions += "false";
+		}
+
+		$currentOptions += ";scale=";
+		$currentOptions += `floatSliderGrp -query -value imocapScale`;
+		
+		$currentOptions += ";rotationOrder=";
+		$currentOptions += `optionMenuGrp -query -value imocapRotationOrder`;
+
+//		if ($bonesOnly) {
+//			$currentOptions += ";startFrame=0;endFrame=0";
+//		} else {
+			int $frameRange = `radioButtonGrp -query -select imocapFrameRange`;
+			switch ($frameRange) {
+			case 1:	// All
+				$currentOptions += ";startFrame=0;endFrame=2147483648";
+				break;
+			case 2: // No end
+				$currentOptions += ";startFrame=";
+				$currentOptions += `intFieldGrp -query -value1 imocapStartFrame`;
+				$currentOptions += ";endFrame=2147483648";
+				break;
+			case 3: // Start and end
+			default:
+				$currentOptions += ";startFrame=";
+				$currentOptions += `intFieldGrp -query -value1 imocapStartFrame`;
+				$currentOptions += ";endFrame=";
+				$currentOptions += `intFieldGrp -query -value1 imocapEndFrame`;
+				break;
+			}
+//		}
+
+		eval($resultCallback+"(\""+$currentOptions+"\")");
+
+		$result = 1;
+	} else {
+		$result = 0;
+	}
+	return $result;
+}
+
+
+global proc updateimocapImportOptionsEnable()
+{
+	int $frameRange = `radioButtonGrp -query -select imocapFrameRange`;
+	switch ($frameRange) {
+	case 1:	// All
+		intFieldGrp -edit -enable1 false imocapStartFrame;
+		intFieldGrp -edit -enable1 false imocapEndFrame;
+		break;
+	case 2:	// No end
+		intFieldGrp -edit -enable1 true imocapStartFrame;
+		intFieldGrp -edit -enable1 false imocapEndFrame;
+		break;
+	case 3: // Start and end
+	default:
+		intFieldGrp -edit -enable1 true imocapStartFrame;
+		intFieldGrp -edit -enable1 true imocapEndFrame;
+		break;
+	}
+
+	int $bonesOnly = `checkBoxGrp -query -value1 imocapBonesOnly`;
+
+	if ($bonesOnly) {
+		checkBoxGrp -edit -enable1 false imocapMerge;
+		radioButtonGrp -edit -enable false imocapFrameRange;
+		intFieldGrp -edit -enable1 false imocapStartFrame;
+		intFieldGrp -edit -enable1 false imocapEndFrame;
+	} else {
+		checkBoxGrp -edit -enable1 true imocapMerge;
+		radioButtonGrp -edit -enable true imocapFrameRange;
+	}
+}
+
+
+global proc updateimocapApplyOptionsEnable()
+{
+	int $merge = `checkBoxGrp -query -value1 imocapMerge`;
+
+	if ($merge) {
+		checkBoxGrp -edit -enable1 false imocapBonesOnly;
+	} else {
+		checkBoxGrp -edit -enable1 true imocapBonesOnly;
+	}
+}
