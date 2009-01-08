@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="gb2312"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="9.00"
 	Name="imocaputilz"
 	ProjectGUID="{508EFC1B-3DD1-4CC5-9549-E191367B7C5B}"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -41,13 +42,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/include"
+				AdditionalIncludeDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_MBCS;NT_PLUGIN;VERBOSITY1"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
 				PrecompiledHeaderFile="$(IntDir)/imocaputilz.pch"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
+				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -65,9 +66,11 @@
 				AdditionalDependencies="Foundation.lib OpenMaya.lib OpenMayaAnim.lib"
 				OutputFile="$(OutDir)\imocaputilz.mll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
+				AdditionalLibraryDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(IntDir)/imocaputilz.pdb"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(IntDir)/imocaputilz.lib"
 			/>
 			<Tool
@@ -87,9 +90,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -121,13 +121,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/include"
+				AdditionalIncludeDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/include"
 				PreprocessorDefinitions="X64;_DEBUG;_WINDOWS;_MBCS;NT_PLUGIN;VERBOSITY1"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
 				PrecompiledHeaderFile="$(IntDir)/imocaputilz.pch"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
+				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -145,9 +145,11 @@
 				AdditionalDependencies="Foundation.lib OpenMaya.lib OpenMayaAnim.lib"
 				OutputFile="$(OutDir)\imocaputilz.mll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
+				AdditionalLibraryDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(IntDir)/imocaputilz.pdb"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(IntDir)/imocaputilz.lib"
 				TargetMachine="17"
 			/>
@@ -168,9 +170,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -201,13 +200,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/include"
+				AdditionalIncludeDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/include"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_MBCS;NT_PLUGIN;VERBOSITY1"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
 				PrecompiledHeaderFile="$(IntDir)/imocaputilz.pch"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
+				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -225,9 +224,11 @@
 				AdditionalDependencies="Foundation.lib OpenMaya.lib OpenMayaAnim.lib"
 				OutputFile="$(OutDir)\imocaputilz.mll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
+				AdditionalLibraryDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile="$(IntDir)/imocaputilz.pdb"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(IntDir)/imocaputilz.lib"
 			/>
 			<Tool
@@ -247,9 +248,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -281,13 +279,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/include"
+				AdditionalIncludeDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/include"
 				PreprocessorDefinitions="WIN64;_WINDOWS;_MBCS;NT_PLUGIN;VERBOSITY1"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
 				PrecompiledHeaderFile="$(IntDir)/imocaputilz.pch"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
+				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -305,9 +303,11 @@
 				AdditionalDependencies="Foundation.lib OpenMaya.lib OpenMayaAnim.lib"
 				OutputFile="$(OutDir)\imocaputilz.mll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
+				AdditionalLibraryDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile="$(IntDir)/imocaputilz.pdb"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(IntDir)/imocaputilz.lib"
 				TargetMachine="17"
 			/>
@@ -328,9 +328,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -361,13 +358,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/include"
+				AdditionalIncludeDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/include"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_MBCS;NT_PLUGIN;VERBOSITY1"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
 				PrecompiledHeaderFile="$(IntDir)/imocaputilz.pch"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
+				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -385,9 +382,11 @@
 				AdditionalDependencies="Foundation.lib OpenMaya.lib OpenMayaAnim.lib"
 				OutputFile="$(OutDir)\imocaputilz.mll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
+				AdditionalLibraryDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile="$(IntDir)/imocaputilz.pdb"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(IntDir)/imocaputilz.lib"
 			/>
 			<Tool
@@ -407,9 +406,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -441,13 +437,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/include"
+				AdditionalIncludeDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/include"
 				PreprocessorDefinitions="X64;_WINDOWS;_MBCS;NT_PLUGIN;VERBOSITY1"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
 				PrecompiledHeaderFile="$(IntDir)/imocaputilz.pch"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
+				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -465,9 +461,11 @@
 				AdditionalDependencies="Foundation.lib OpenMaya.lib OpenMayaAnim.lib"
 				OutputFile="$(OutDir)\imocaputilz.mll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
+				AdditionalLibraryDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile="$(IntDir)/imocaputilz.pdb"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(IntDir)/imocaputilz.lib"
 				TargetMachine="17"
 			/>
@@ -488,9 +486,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -521,13 +516,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/include"
+				AdditionalIncludeDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/include"
 				PreprocessorDefinitions="WIN32;_WINDOWS;_MBCS;NT_PLUGIN;VERBOSITY1"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
 				PrecompiledHeaderFile="$(IntDir)/imocaputilz.pch"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
+				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -545,9 +540,11 @@
 				AdditionalDependencies="Foundation.lib OpenMaya.lib OpenMayaAnim.lib"
 				OutputFile="$(OutDir)\imocaputilz.mll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
+				AdditionalLibraryDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile="$(IntDir)/imocaputilz.pdb"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(IntDir)/imocaputilz.lib"
 			/>
 			<Tool
@@ -567,9 +564,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -601,13 +595,13 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/include"
+				AdditionalIncludeDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/include"
 				PreprocessorDefinitions="X64;_WINDOWS;_MBCS;NT_PLUGIN;VERBOSITY1"
 				RuntimeLibrary="3"
 				RuntimeTypeInfo="true"
 				PrecompiledHeaderFile="$(IntDir)/imocaputilz.pch"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
+				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
 			/>
 			<Tool
@@ -625,9 +619,11 @@
 				AdditionalDependencies="Foundation.lib OpenMaya.lib OpenMayaAnim.lib"
 				OutputFile="$(OutDir)\imocaputilz.mll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="d:/works/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
+				AdditionalLibraryDirectories="d:/programming/my/maya/$(ConfigurationName)_$(PlatformName)/lib"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile="$(IntDir)/imocaputilz.pdb"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				ImportLibrary="$(IntDir)/imocaputilz.lib"
 				TargetMachine="17"
 			/>
@@ -648,9 +644,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -698,6 +691,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\imath.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\src\imatrix.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\imocapdata.h"
 				>
 			</File>
@@ -714,7 +715,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\iquaternion.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\src\iskeleton.h"
+				>
+			</File>
+			<File
+				RelativePath=".\src\ivector.hpp"
 				>
 			</File>
 			<File
@@ -727,18 +736,10 @@
 			Filter="txt"
 			>
 			<File
-				RelativePath=".\Options.txt"
-				>
-			</File>
-			<File
-				RelativePath=".\ReadMe.txt"
+				RelativePath=".\src\imocaputilz.rc"
 				>
 			</File>
 		</Filter>
-		<File
-			RelativePath=".\imocaputilz.rc"
-			>
-		</File>
 	</Files>
 	<Globals>
 	</Globals>
