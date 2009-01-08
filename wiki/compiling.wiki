@@ -1,0 +1,27 @@
+= Compiling instructions =
+
+== Windows ==
+=== Environment ===
+ * Visual Studio 2003 Toolkit (for Maya 7.5 and lower version)
+ * Visual Studio 2008 (for Maya 8.0 and higher version)
+ * Maya devkit for Windows
+=== Steps ===
+For Maya 7.5 and lower version
+ # Open imocaputilz.sln with VS2008
+ # Change include and lib path in the project property to current Maya devkit directory if necessary
+ # Batch build
+For Maya 8.0 and higher version
+ # Set MAYA_LOCATION to directory contains various Maya devkit
+ # Execute jam
+----
+== Linux ==
+=== Environment ===
+ * gcc/g++-3.3 (for Maya 7.5 and lower version)
+ * gcc/g++-4.0 (for Maya 8.0 and higher version)
+ * Maya devkit for Linux
+=== Steps ===
+ # Set MAYA_LOCATION to directory contains various Maya devkit
+ # Execute ./lbuild
+----
+== Mac OS X ==
+Not tested yet.
