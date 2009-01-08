@@ -6,13 +6,13 @@
  * Visual Studio 2008 (for Maya 8.0 and higher version)
  * Maya devkit for Windows
 === Steps ===
-For Maya 7.5 and lower version
+_For Maya 7.5 and lower version_
+ # Set MAYA_LOCATION to directory contains various Maya devkit
+ # Execute jam
+_For Maya 8.0 and higher version_
  # Open imocaputilz.sln with VS2008
  # Change include and lib path in the project property to current Maya devkit directory if necessary
  # Batch build
-For Maya 8.0 and higher version
- # Set MAYA_LOCATION to directory contains various Maya devkit
- # Execute jam
 ----
 == Linux ==
 === Environment ===
